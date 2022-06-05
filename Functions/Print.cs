@@ -14,7 +14,7 @@ namespace TWILang_Test
 
             if (cmdList[1] != null)
             {
-                Console.WriteLine(Variables.inlineVariables(cmdList[1]));
+                Console.WriteLine(Variables.inlineVariables(String.Join("", cmdList[1].Split("\"")).Trim()));
             }
             else
             {

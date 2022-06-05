@@ -60,7 +60,7 @@ namespace TWILang_Test
                 }
             }
 
-            return String.Join("", newStr.Split("\"")).Trim();
+            return InternalVariables.inlineVariables(newStr.Trim());
         }
     }
 }

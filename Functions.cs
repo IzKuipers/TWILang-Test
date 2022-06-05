@@ -16,18 +16,20 @@ namespace TWILang_Test
             {
                 Initialized = true;
 
-                Commands.Add("sect", Functions.Sect);
-                Commands.Add("endsect", Functions.Blank);
-                Commands.Add("clrscreen", Functions.ClearScreen);
-                Commands.Add("input", Functions.Input);
-                Commands.Add("print", Functions.Print);
-                Commands.Add("ifndef", Functions.IfNotDef);
-                Commands.Add("ifdef", Functions.IfDef);
-                Commands.Add("ifn", Functions.IfNot);
-                Commands.Add("if", Functions.If);
-                Commands.Add("run", Functions.Run);
-                Commands.Add("killme", Functions.KillMe);
-                Commands.Add("random", Functions.Random);
+                Commands.Add("sect", Sect);
+                Commands.Add("endsect", Blank);
+                Commands.Add("clrscreen", ClearScreen);
+                Commands.Add("input", Input);
+                Commands.Add("print", Print);
+                Commands.Add("ifndef", IfNotDef);
+                Commands.Add("ifdef", IfDef);
+                Commands.Add("ifn", IfNot);
+                Commands.Add("if", If);
+                Commands.Add("run", Run);
+                Commands.Add("killme", KillMe);
+                Commands.Add("random", Random);
+                Commands.Add("wfile", WriteFile);
+                Commands.Add("sleep", Sleep);
             }
         }
     }

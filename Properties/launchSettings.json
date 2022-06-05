@@ -2,7 +2,7 @@
   "profiles": {
     "TWILang-Test": {
       "commandName": "Project",
-      "commandLineArgs": "--file test.txt"
+      "commandLineArgs": "--file random.txt --log log.txt --debug"
     }
   }
 }

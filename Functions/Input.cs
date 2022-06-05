@@ -27,7 +27,7 @@ namespace TWILang_Test
             }
             else
             {
-                traceback.panic(i, filename, "Missing required arguments");
+                traceback.panic(String.Join(' ', cmdList), filename, "Missing required arguments");
             }
         }
     }

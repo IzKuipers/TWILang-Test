@@ -66,6 +66,8 @@ namespace TWILang_Test
 
             for (int i = 0; i < commandBuffer.Count; i++)
             {
+                InternalVariables.updateInternal();
+
                 string line = commandBuffer[i];
                 string[] cmdList = Regex.Matches(line, "[^\\s\"']+|\"([^\"]*)\"|'([^']*)'").Cast<Match>().Select(m => m.Value).ToArray();
 
@@ -83,7 +85,7 @@ namespace TWILang_Test
                             }
                             else
                             {
-                                traceback.panic(i, filename, $"{cmdList[0]} is not a valid command");
+                                traceback.syntaxErr(line, filename);
                             }
                         }
                     }

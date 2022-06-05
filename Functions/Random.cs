@@ -27,12 +27,12 @@ namespace TWILang_Test
                     Variables.setVariable(varStr, random.ToString());
                 } catch
                 {
-                    traceback.panic(i, filename, "Second argument has invalid value");
+                    traceback.panic(String.Join(' ', cmdList), filename, "Second argument has invalid value");
                 }
             }
             else
             {
-                traceback.panic(i, filename, "Missing required arguments");
+                traceback.panic(String.Join(' ', cmdList), filename, "Missing required arguments");
             }
         }
     }

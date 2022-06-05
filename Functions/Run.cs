@@ -25,11 +25,14 @@ namespace TWILang_Test
                     CommandEvaluator.commandBuffer = new List<string>();
                     CommandEvaluator.stopExecution = false;
                     CommandEvaluator.EvaluateArray(commands, filename);
+                } else
+                {
+                    traceback.syntaxErr(String.Join(' ', cmdList), filename,$"Unknown section '{sect}'");
                 }
             }
             else
             {
-                traceback.panic(i, filename, "Missing arguments");
+                traceback.panic(String.Join(' ', cmdList), filename, "Missing arguments");
             }
         }
     }

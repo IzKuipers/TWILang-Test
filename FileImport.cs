@@ -8,6 +8,7 @@ namespace TWILang_Test
 {
     internal class FileImport
     {
+        public static string filename = "";
         public static List<string> fileContents = new List<string> { };
         public static void import(string file)
         {
@@ -17,16 +18,23 @@ namespace TWILang_Test
             {
                 var enumLines = File.ReadLines(file, Encoding.UTF8);
 
+                filename = file;
+
                 fileContents = enumLines.ToList();
 
                 CommandEvaluator.detectSections();
                 CommandEvaluator.EvaluateArray(enumLines.ToList(), file);
+
+                if (DebugMode.enabled)
+                {
+                    DebugMode.loop();
+                }
             }
             catch (Exception ex)
             {
                 Log.AppendToLog("Import", 0, "IMPORT", $"Import failed: {ex.Message}");
 
-                traceback.panic(0, "IMPORT", ex.Message);
+                traceback.panic("UNDEFINED", "EXEC", ex.Message);
             }
         }
     }

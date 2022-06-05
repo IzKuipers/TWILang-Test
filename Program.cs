@@ -15,14 +15,26 @@ namespace TWILang_Test
                 Log.LogFilename = switches["log"];
             }
 
+            if (switches.ContainsKey("debug"))
+            {
+                DebugMode.enabled = true;
+            }
+
             if (switches.ContainsKey("file"))
             {
                 FileImport.import(switches["file"]);
             } else
             {
-                Console.WriteLine("FATAL: missing import file");
+                if (!DebugMode.enabled)
+                {
+                    Console.WriteLine("FATAL: missing import file");
 
-                Environment.Exit(1);
+                    Environment.Exit(1);
+                }
+                else
+                {
+                    DebugMode.loop();
+                }
             }
         }
 
