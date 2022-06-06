@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
@@ -12,9 +8,9 @@ namespace TWILang_Test
         {
             int ln = -1;
 
-            for (int i=0;i<FileImport.fileContents.Count;i++)
+            for (int i = 0; i < FileImport.fileContents.Count; i++)
             {
-                if (FileImport.fileContents[i] == line || FileImport.fileContents[i].EndsWith(line)) ln = i+1;
+                if (FileImport.fileContents[i] == line || FileImport.fileContents[i].EndsWith(line)) ln = i + 1;
             }
 
             Log.AppendToLog("Panic", ln, file, error);
@@ -34,24 +30,22 @@ namespace TWILang_Test
         public static void syntaxErr(string line, string file, string error = "call made to nonexistent function")
         {
             int ln = -1;
-            
+
             for (int i = 0; i < FileImport.fileContents.Count; i++)
             {
                 if (FileImport.fileContents[i] == line || FileImport.fileContents[i].EndsWith(line)) ln = i + 1;
             }
 
             int lineNrPadCount = ln.ToString().Length + 1;
-            
-            Console.WriteLine();
-            
-            string lineDisplay = $"{(ln).ToString().PadLeft(lineNrPadCount, ' ')} | {FileImport.fileContents[ln - 1]}";
 
-            Console.WriteLine(lineDisplay);
+            Console.WriteLine();
+
+            string lineDisplay = $"{(ln).ToString().PadLeft(lineNrPadCount, ' ')} | {FileImport.fileContents[ln - 1]}";
 
             int counter = -1;
             int offset = -128;
-            
-            for (int i=0;i<lineDisplay.Length;i++)
+
+            for (int i = 0; i < lineDisplay.Length; i++)
             {
                 if (lineDisplay[i] == line[0])
                 {
@@ -61,19 +55,39 @@ namespace TWILang_Test
                         if (offset == -128) offset = j + 2;
 
                         //if (line[j - i])
-                            counter++;
+                        counter++;
                     }
                     counter++;
                 }
             }
 
-            string annotation = "~";
-            
-            annotation = annotation.PadLeft(offset+1, ' ').PadRight(counter+offset, '~');
+            Console.WriteLine($"\nSyntax error in {file}:{ln}:{offset - (lineNrPadCount + 2) + 1} - {error}");
 
-            Console.WriteLine(annotation);
+            for (int i = 0; i < Console.WindowWidth / 2; i++)
+            {
+                Console.Write("-");
+            }
 
-            Console.WriteLine($"\nSyntax error in {file}:{ln}:{offset - (lineNrPadCount+3)} - {error}");
+            Console.WriteLine($"\n{lineDisplay}");
+
+            for (int i = 0; i < Console.WindowWidth / 2; i++)
+            {
+                Console.Write("-");
+            }
+
+            if (!DebugMode.enabled)
+            {
+                Environment.Exit(1);
+            }
+            else
+            {
+                Console.Write("\nDEBUG: code execution terminated.");
+
+                CommandEvaluator.sectionLines.Clear();
+                CommandEvaluator.sectionKeys.Clear();
+                CommandEvaluator.commandBuffer.Clear();
+
+            }
         }
     }
 }

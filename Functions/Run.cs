@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
@@ -25,9 +22,10 @@ namespace TWILang_Test
                     CommandEvaluator.commandBuffer = new List<string>();
                     CommandEvaluator.stopExecution = false;
                     CommandEvaluator.EvaluateArray(commands, filename);
-                } else
+                }
+                else
                 {
-                    traceback.syntaxErr(String.Join(' ', cmdList), filename,$"Unknown section '{sect}'");
+                    traceback.syntaxErr(String.Join(' ', cmdList), filename, $"Unknown section '{sect}'");
                 }
             }
             else

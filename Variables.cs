@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TWILang_Test
 {
@@ -15,23 +11,31 @@ namespace TWILang_Test
         {
             Log.AppendToLog("getValue", 0, "VARIABLES", $"Getting variable ${variableName}");
 
-            if (VariableStore.ContainsKey(variableName)) {
+            if (VariableStore.ContainsKey(variableName))
+            {
                 return VariableStore[variableName];
             }
             return "";
         }
 
-        public static void setVariable(char name,string value)
+        public static void setVariable(char name, string value)
         {
             Log.AppendToLog("setValue", 0, "VARIABLES", $"Setting variable ${name}");
 
             if (getValue(name) == "" && !VariableStore.ContainsKey(name))
             {
                 VariableStore.Add(name, value);
-            } else
+            }
+            else
             {
                 VariableStore[name] = value;
             }
+        }
+
+        public static void deleteVariable(char name)
+        {
+            if (VariableStore.ContainsKey(name))
+                VariableStore.Remove(name);
         }
 
         public static string inlineVariables(string str)
@@ -41,20 +45,21 @@ namespace TWILang_Test
             string[] split = str.Split(" ");
             string newStr = "";
 
-            for (int i=0;i<split.Length;i++)
+            for (int i = 0; i < split.Length; i++)
             {
                 if (split[i].StartsWith(prefix))
                 {
                     newStr += getValue(split[i].ToCharArray()[1]);
                     char[] splitCharList = split[i].ToCharArray();
 
-                    for (int j=2;j<splitCharList.Length;j++)
+                    for (int j = 2; j < splitCharList.Length; j++)
                     {
                         newStr += splitCharList[j];
                     }
 
                     newStr += " ";
-                } else
+                }
+                else
                 {
                     newStr += split[i] + " ";
                 }

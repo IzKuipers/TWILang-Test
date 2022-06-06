@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
     internal class Log
     {
-        public static List<string> LogStore = new List<string>(){};
+        public static List<string> LogStore = new List<string>() { };
         public static string LogFilename = "";
 
         public static void AppendToLog(string function, int i, string filename, string message)

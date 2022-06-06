@@ -2,7 +2,7 @@
   "profiles": {
     "TWILang-Test": {
       "commandName": "Project",
-      "commandLineArgs": "--file random.txt --log log.txt --debug"
+      "commandLineArgs": "--file scripts\\variables.txt --log log.txt --debug --allowcrash"
     }
   }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
@@ -30,6 +27,10 @@ namespace TWILang_Test
                 Commands.Add("random", Random);
                 Commands.Add("wfile", WriteFile);
                 Commands.Add("sleep", Sleep);
+                Commands.Add("delete", Delete);
+                Commands.Add("set", Set);
+                Commands.Add("cpvar", CopyVar);
+                Commands.Add("mvvar", MoveVar);
             }
         }
     }

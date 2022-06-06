@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
@@ -25,7 +21,8 @@ namespace TWILang_Test
                     int random = rnd.Next(max);
 
                     Variables.setVariable(varStr, random.ToString());
-                } catch
+                }
+                catch
                 {
                     traceback.panic(String.Join(' ', cmdList), filename, "Second argument has invalid value");
                 }

@@ -33,8 +33,9 @@ namespace TWILang_Test
             catch (Exception ex)
             {
                 Log.AppendToLog("Import", 0, "IMPORT", $"Import failed: {ex.Message}");
-
-                traceback.panic("UNDEFINED", "EXEC", ex.Message);
+                if (!DebugMode.allowCrash)
+                    traceback.panic("UNDEFINED", "EXEC", ex.Message);
+                else throw ex;
             }
         }
     }

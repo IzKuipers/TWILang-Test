@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
@@ -15,7 +12,7 @@ namespace TWILang_Test
             int lineNrPadCount = $"{buff.Count}".Length + 1;
 
             Console.WriteLine($"Listing contents of {FileImport.filename}");
-            for (int i=0;i<Console.WindowWidth / 2;i++)
+            for (int i = 0; i < Console.WindowWidth / 2; i++)
             {
                 Console.Write("-");
             }
@@ -56,7 +53,8 @@ namespace TWILang_Test
                     Console.WriteLine($"{(i + 1).ToString().PadLeft(lineNrPadCount, ' ')} | {buff[i]}");
 
                     Console.ResetColor();
-                } catch
+                }
+                catch
                 {
                     traceback.panic(cmd, $"DEBUG-LIST in {FileImport.filename}", "Listing error because of malformed line number");
                 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
@@ -18,7 +15,7 @@ namespace TWILang_Test
 
             Console.WriteLine();
 
-            foreach (KeyValuePair<char,string> key in Variables.VariableStore)
+            foreach (KeyValuePair<char, string> key in Variables.VariableStore)
             {
                 Console.WriteLine($"[ {FileImport.filename} | ${key.Key} | {key.Value.Length} Byte(s) ] : {key.Value}");
             }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -27,7 +26,7 @@ namespace TWILang_Test
                 string line = lines[i];
                 string[] cmdList = Regex.Matches(line, "[^\\s\"']+|\"([^\"]*)\"|'([^']*)'").Cast<Match>().Select(m => m.Value).ToArray();
 
-                
+
 
                 if (cmdList.Length > 0)
                 {
@@ -66,10 +65,18 @@ namespace TWILang_Test
 
             for (int i = 0; i < commandBuffer.Count; i++)
             {
-                InternalVariables.updateInternal();
-
                 string line = commandBuffer[i];
                 string[] cmdList = Regex.Matches(line, "[^\\s\"']+|\"([^\"]*)\"|'([^']*)'").Cast<Match>().Select(m => m.Value).ToArray();
+
+                int ln = -1;
+
+                for (int j = 0; j < FileImport.fileContents.Count; j++)
+                {
+                    if (FileImport.fileContents[j] == line || FileImport.fileContents[j].EndsWith(line)) ln = j + 1;
+                }
+
+                InternalVariables.updateInternal();
+
 
                 if (!stopExecution)
                 {
@@ -81,7 +88,7 @@ namespace TWILang_Test
 
                             if (Functions.Commands.ContainsKey(cmdList[0].ToLower()))
                             {
-                                Functions.Commands[cmdList[0].ToLower()](cmdList, i, filename);
+                                Functions.Commands[cmdList[0].ToLower()](cmdList, ln, filename);
                             }
                             else
                             {

@@ -15,7 +15,8 @@ namespace TWILang_Test
                 try
                 {
                     ln = int.Parse(list[1]);
-                } catch
+                }
+                catch
                 {
                     traceback.panic(cmd, FileImport.filename, "Cannot continue execution at <line>: malformed line number");
                 }
@@ -24,7 +25,7 @@ namespace TWILang_Test
                 {
                     List<string> lines = new List<string>();
 
-                    for (int i=ln-1;i<FileImport.fileContents.Count;i++)
+                    for (int i = ln - 1; i < FileImport.fileContents.Count; i++)
                     {
                         string[] cmdList = Regex.Matches(FileImport.fileContents[i], "[^\\s\"']+|\"([^\"]*)\"|'([^']*)'").Cast<Match>().Select(m => m.Value).ToArray();
 

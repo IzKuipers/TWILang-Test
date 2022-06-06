@@ -1,0 +1,17 @@
+sect 			<section_name>														Start a section
+endsect																			Ends the current section
+clrscreen																			Clear the terminal
+input			$<variable>		"<caption>"										Send user input to a variable
+print			"<string>"														Print out a string, can have $<variable> inlined
+ifndef			"$<variable>"		<command>											Execute <command> if "$<variable>" DOESN'T have a value
+ifdef			"$<variable>"		<command>											Execute <command> if "$<variable>" DOES have a value
+if				"$<variable1>"		"$<variable2>"			<command>						Execute <command> if "$<variable1>" is "$<variable2>"
+ifn				"$<variable1>"		"$<variable2>"			<command>						Execute <command> if "$<variable1>" isn't "$<variable2>"
+run				<section_name>														Continues code execution at the start of <section_name>
+killme			<exit_code>														Terminates the application, <exit_code> is optional
+random			$<variable>		<maximal>											Sets $<variable> to a random number between 0 and <maximal>
+wfile			"<path>"			"<data>"											Clear file <path> and write <data> to it
+afile			"<path>"			"<data>"											Open file <path> and append a line with <data> to it
+dfile			"<path>"															Delete <path>
+iffile			"<path>"			<command>											Execute <command> if <path> DOES exists"
+ifnfile			"<path>"			<command>											Execute <command> if <path> DOESN'T exist 

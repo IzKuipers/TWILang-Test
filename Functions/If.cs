@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
@@ -31,7 +28,7 @@ namespace TWILang_Test
             }
             else
             {
-                traceback.panic(String.Join(' ',cmdList), filename, "Missing required arguments");
+                traceback.panic(String.Join(' ', cmdList), filename, "Missing required arguments");
             }
         }
     }

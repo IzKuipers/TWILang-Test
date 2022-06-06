@@ -20,10 +20,16 @@ namespace TWILang_Test
                 DebugMode.enabled = true;
             }
 
+            if (switches.ContainsKey("allowcrash"))
+            {
+                DebugMode.allowCrash = true;
+            }
+
             if (switches.ContainsKey("file"))
             {
                 FileImport.import(switches["file"]);
-            } else
+            }
+            else
             {
                 if (!DebugMode.enabled)
                 {
@@ -38,26 +44,28 @@ namespace TWILang_Test
             }
         }
 
-        static Dictionary<string,string> GetSwitches(string[] args)
+        static Dictionary<string, string> GetSwitches(string[] args)
         {
             Log.AppendToLog("GetSwitches", 0, "START", $"Getting switches from commandline ({args.Length} arguments given)");
 
-            Dictionary<string,string> switches = new Dictionary<string,string>();
+            Dictionary<string, string> switches = new Dictionary<string, string>();
             string currentArg = "";
             string prefix = "--";
 
-            for (int i=0;i<args.Length;i++)
+            for (int i = 0; i < args.Length; i++)
             {
                 if (args[i].StartsWith(prefix))
                 {
-                    string arg = args[i].Replace(prefix,"");
+                    string arg = args[i].Replace(prefix, "");
 
                     currentArg = arg != "" ? arg : currentArg;
-                    
-                    if (!switches.ContainsKey(arg)) {
+
+                    if (!switches.ContainsKey(arg))
+                    {
                         switches.Add(arg, "");
                     }
-                } else if (currentArg != "")
+                }
+                else if (currentArg != "")
                 {
                     switches[currentArg] += args[i] + " ";
                 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TWILang_Test
 {
@@ -16,7 +13,7 @@ namespace TWILang_Test
         {
             vars.Clear();
 
-            string h = DateTime.Now.Hour.ToString().PadLeft(2,'0');
+            string h = DateTime.Now.Hour.ToString().PadLeft(2, '0');
             string m = DateTime.Now.Minute.ToString().PadLeft(2, '0');
             string s = DateTime.Now.Second.ToString().PadLeft(2, '0');
             string d = DateTime.Now.Day.ToString().PadLeft(2, '0');
