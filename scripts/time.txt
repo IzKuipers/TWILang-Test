@@ -1,0 +1,7 @@
+sect main
+	
+	print "You're living on @d at @t"
+
+endsect
+
+run main

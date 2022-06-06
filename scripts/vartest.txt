@@ -1,0 +1,7 @@
+sect main
+
+	print "$Z"
+
+endsect
+
+run main

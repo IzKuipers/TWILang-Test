@@ -1,0 +1,13 @@
+sect main
+
+	random $A 1000000
+
+	print "$A"
+
+	sleep 1000
+
+	run main
+
+endsect
+
+run main

@@ -1,0 +1,18 @@
+sect main
+
+	random $R 1000
+
+	set $A "$R"
+
+	print "$A $R"
+
+	cpvar $A $B
+	mvvar $R $V
+
+	delete $R
+
+	print "$A $R $V $B"
+
+endsect
+
+run main

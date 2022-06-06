@@ -1,0 +1,26 @@
+sect main
+
+	clrscreen
+
+	input $A "Enter your name"
+	ifndef "$A" run error
+	ifdef "$A" run success
+	print "Unknown error occured! ($A)"
+
+endsect
+
+sect error
+
+	print "Please specify your name"
+	run main
+
+endsect
+
+sect success
+
+	print "Thank you for entering your name, $A!"
+	killme
+
+endsect
+
+run main

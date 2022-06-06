@@ -1,0 +1,7 @@
+sect main
+
+	ifndef "" print "Not defined"
+
+endsect
+
+run main

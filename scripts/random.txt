@@ -1,0 +1,46 @@
+sect main
+
+	clrscreen
+
+	print "Please enter your name."
+	input $N "NAME:"
+
+	ifndef "$N" run name_error
+
+	random $B 10
+
+	print ""
+	print "Hello, $N! A random number has been generated between 0 and 10. Can you guess what it is?"
+	input $G "GUESS:"
+
+	print ""
+	if "$B" "$G" run guess_correct
+	ifn "$B" "$G" run guess_incorrect
+
+endsect
+
+sect name_error
+
+	print "Please enter your name, I want to know you :("
+
+	run main
+
+endsect
+
+sect guess_correct
+
+	print "Good job, $N! you guessed $B correctly!"
+
+	killme
+
+endsect
+
+sect guess_incorrect
+
+	print "Too bad, $N... the number was $B, but you guessed $G..."
+
+	killme 1
+
+endsect
+
+run main

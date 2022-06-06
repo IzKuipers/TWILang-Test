@@ -1,0 +1,13 @@
+sect main
+
+	input $A "Enter any string:"
+
+	wfile "wfile_out.txt" "$A"
+
+	print "Please check wfile_out.txt"
+
+	killme
+
+endsect
+
+run main

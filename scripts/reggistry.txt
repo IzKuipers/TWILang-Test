@@ -1,0 +1,28 @@
+sect main
+
+	clrscreen
+
+	run login
+
+endsect
+
+sect login
+	
+	print "Reggistry login"
+	input $U "Username:"
+	input $P "Password:"
+
+	ifndef "$U" run login_ndef_err
+	ifndef "$P" run login_ndef_err
+
+endsect
+
+sect login_ndef_err
+
+	print "Missing username and/or password!"
+
+	run main
+
+endsect
+
+run main

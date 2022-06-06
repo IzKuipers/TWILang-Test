@@ -1,0 +1,7 @@
+sect main
+
+	killme 1
+
+endsect
+
+run main
