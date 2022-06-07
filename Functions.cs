@@ -9,6 +9,7 @@ namespace TWILang_Test
         public static bool Initialized = false;
         public static void Initialize()
         {
+            Log.AppendToLog("Initialize", -1, "Functions", "Initializing commands...");
             if (!Initialized)
             {
                 Initialized = true;

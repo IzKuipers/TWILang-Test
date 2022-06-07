@@ -6,6 +6,7 @@ namespace TWILang_Test
     {
         public static void Exit(string cmd, string[] list)
         {
+            Log.AppendToLog("Execution", -1, "DebugMode", "Entering DebugMode.Exit");
             Console.WriteLine("Leaving...");
 
             Environment.Exit(0);

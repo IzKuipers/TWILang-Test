@@ -10,7 +10,9 @@ namespace TWILang_Test
 
             if (cmdList[1] != null)
             {
-                Console.WriteLine(Variables.inlineVariables(String.Join("", cmdList[1].Split("\"")).Trim()));
+                string output = Variables.inlineVariables(String.Join("", cmdList[1].Split("\"")).Trim());
+
+                Console.WriteLine(output.Replace("eeeeeeeeeeeeeeeeeeeeeeee", "Are you keesvv?"));
             }
             else
             {

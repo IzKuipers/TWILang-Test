@@ -5,7 +5,7 @@ sect main
 	print "Please enter your name."
 	input $N "NAME:"
 
-	ifndef "$N" run name_error
+	if !def "$N" run name_error
 
 	random $B 10
 
@@ -14,8 +14,8 @@ sect main
 	input $G "GUESS:"
 
 	print ""
-	if "$B" "$G" run guess_correct
-	ifn "$B" "$G" run guess_incorrect
+	if eq"$B" "$G" run guess_correct
+	if !eq "$B" "$G" run guess_incorrect
 
 endsect
 
@@ -42,5 +42,3 @@ sect guess_incorrect
 	killme 1
 
 endsect
-
-run main

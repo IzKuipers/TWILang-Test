@@ -8,7 +8,7 @@ namespace TWILang_Test
 {
     internal class FileImport
     {
-        public static string filename = "";
+        public static string filename = ""; 
         public static List<string> fileContents = new List<string> { };
         public static void import(string file)
         {
@@ -22,8 +22,8 @@ namespace TWILang_Test
 
                 fileContents = enumLines.ToList();
 
-                CommandEvaluator.detectSections();
-                CommandEvaluator.EvaluateArray(enumLines.ToList(), file);
+                //CommandEvaluator.detectSections();
+                CommandEvaluator.EvaluateArray(enumLines.ToList(), file,true);
 
                 if (DebugMode.enabled)
                 {

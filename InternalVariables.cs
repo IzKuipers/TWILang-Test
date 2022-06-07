@@ -11,6 +11,7 @@ namespace TWILang_Test
 
         public static void updateInternal()
         {
+            Log.AppendToLog("updateInternal", -1, "InternalVariables", "Updating internal variables...");
             vars.Clear();
 
             string h = DateTime.Now.Hour.ToString().PadLeft(2, '0');
@@ -31,7 +32,7 @@ namespace TWILang_Test
         }
         public static string inlineVariables(string str)
         {
-            Log.AppendToLog("inlineVariables", 0, "INTVARIABLES", $"Inlining all found internal variables into '{str}'");
+            Log.AppendToLog("inlineVariables", 0, "InternalVariables", $"Inlining all found internal variables into '{str}'");
 
             string[] split = str.Split(" ");
             string newStr = "";

@@ -1,4 +1,6 @@
-﻿namespace TWILang_Test
+﻿using System;
+
+namespace TWILang_Test
 {
     internal partial class Functions
     {

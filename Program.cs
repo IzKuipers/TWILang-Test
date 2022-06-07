@@ -7,7 +7,7 @@ namespace TWILang_Test
     {
         static void Main(string[] args)
         {
-            Log.AppendToLog("Main", 0, "START", "Starting interpreter");
+            Log.AppendToLog("Main", -1, "Program", "Starting interpreter");
             Dictionary<string, string> switches = GetSwitches(args);
 
             if (switches.ContainsKey("log"))
@@ -46,7 +46,7 @@ namespace TWILang_Test
 
         static Dictionary<string, string> GetSwitches(string[] args)
         {
-            Log.AppendToLog("GetSwitches", 0, "START", $"Getting switches from commandline ({args.Length} arguments given)");
+            Log.AppendToLog("GetSwitches", -1, "Program", $"Getting switches from commandline ({args.Length} arguments given)");
 
             Dictionary<string, string> switches = new Dictionary<string, string>();
             string currentArg = "";

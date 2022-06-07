@@ -4,31 +4,39 @@ namespace TWILang_Test
 {
     internal class traceback
     {
-        public static void panic(string line, string file, string error)
+        public static bool immediatelyEnded = false;
+
+        public static void panic(string line, string file, string error, bool endImmediate = false)
         {
-            int ln = -1;
-
-            for (int i = 0; i < FileImport.fileContents.Count; i++)
+            if (!immediatelyEnded)
             {
-                if (FileImport.fileContents[i] == line || FileImport.fileContents[i].EndsWith(line)) ln = i + 1;
+                int ln = -1;
+
+                for (int i = 0; i < FileImport.fileContents.Count; i++)
+                {
+                    if (FileImport.fileContents[i] == line || FileImport.fileContents[i].EndsWith(line)) ln = i + 1;
+                }
+
+                Log.AppendToLog("Panic", ln, file, error);
+
+                Console.WriteLine($"PANIC ({file}:{ln}): {error}");
+
+
+                if (DebugMode.enabled)
+                {
+                    Console.WriteLine($"DEBUG: TraceBack.Panic: exit code 1");
+
+                    return;
+                }
+                Environment.Exit(1);
             }
 
-            Log.AppendToLog("Panic", ln, file, error);
-
-            Console.WriteLine($"PANIC ({file}:{ln}): {error}");
-
-
-            if (DebugMode.enabled)
-            {
-                Console.WriteLine($"DEBUG: TraceBack.Panic: exit code 1");
-
-                return;
-            }
-            Environment.Exit(1);
+            if (endImmediate) immediatelyEnded = true;
         }
 
         public static void syntaxErr(string line, string file, string error = "call made to nonexistent function")
         {
+            Log.AppendToLog("SyntaxErr", -1, "Traceback", $"Syntax error in {file}: {error}");
             for (int i = 0; i < Console.WindowWidth / 2; i++)
             {
                 Console.Write("-");

@@ -6,7 +6,7 @@ namespace TWILang_Test
     {
         public static void ClearScreen(string[] cmdList, int i, string filename)
         {
-            Console.Clear();
+            //Console.Clear();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace TWILang_Test
         public static bool inSect = false;
         public static string currentSect = "";
         public static bool stopExecution = false;
+        public static string startSectName = "main";
 
         public static void detectSections()
         {
@@ -22,12 +23,11 @@ namespace TWILang_Test
             sectionLines.Clear();
             currentSect = "";
 
+
             for (int i = 0; i < lines.Count; i++)
             {
                 string line = lines[i];
                 string[] cmdList = Regex.Matches(line, "[^\\s\"']+|\"([^\"]*)\"|'([^']*)'").Cast<Match>().Select(m => m.Value).ToArray();
-
-
 
                 if (cmdList.Length > 0)
                 {
@@ -57,12 +57,27 @@ namespace TWILang_Test
                     }
                 }
             }
+
+            if (!sectionKeys.Contains(startSectName))
+            {
+                traceback.panic($"detectSections for {FileImport.filename}", $"{FileImport.filename}", "Cannot continue code execution, main function doesn't exist", true);
+
+                stopExecution = true;
+                currentSect = "";
+
+                commandBuffer.Clear();
+            }
         }
 
-        public static void EvaluateArray(List<string> lines, string filename = "<unknown>")
+        public static void EvaluateArray(List<string> lines, string filename = "<unknown>", bool initialImport = false)
         {
-            commandBuffer = lines;
             stopExecution = false;
+
+            detectSections();
+
+            commandBuffer = lines;
+
+            if (initialImport) commandBuffer.Add($"run {startSectName}");
 
             for (int i = 0; i < commandBuffer.Count; i++)
             {
@@ -77,7 +92,6 @@ namespace TWILang_Test
                 }
 
                 InternalVariables.updateInternal();
-
 
                 if (!stopExecution)
                 {

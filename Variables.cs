@@ -9,7 +9,7 @@ namespace TWILang_Test
 
         public static string getValue(char variableName)
         {
-            Log.AppendToLog("getValue", 0, "VARIABLES", $"Getting variable ${variableName}");
+            Log.AppendToLog("getValue", 0, "Variables", $"Getting variable ${variableName}");
 
             if (VariableStore.ContainsKey(variableName))
             {
@@ -20,7 +20,7 @@ namespace TWILang_Test
 
         public static void setVariable(char name, string value)
         {
-            Log.AppendToLog("setValue", 0, "VARIABLES", $"Setting variable ${name}");
+            Log.AppendToLog("setValue", 0, "Variables", $"Setting variable ${name}");
 
             if (getValue(name) == "" && !VariableStore.ContainsKey(name))
             {
@@ -40,7 +40,7 @@ namespace TWILang_Test
 
         public static string inlineVariables(string str)
         {
-            Log.AppendToLog("inlineVariables", 0, "VARIABLES", $"Inlining all found variables into '{str}'");
+            Log.AppendToLog("inlineVariables", 0, "Variables", $"Inlining all found variables into '{str}'");
 
             string[] split = str.Split(" ");
             string newStr = "";

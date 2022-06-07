@@ -12,6 +12,7 @@ namespace TWILang_Test
         public static bool allowCrash = false;
         public static void loop()
         {
+            Log.AppendToLog("Loop", -1, "DebugMode", "Starting debug mode input looper");
             Console.WriteLine("\n\n--- DEBUG ---\n\nYou've entered debug mode through the --debug flag.\nFrom here you can debug the data from the imported script.\n");
 
             while (enabled)
@@ -46,6 +47,7 @@ namespace TWILang_Test
 
         public static void initialize()
         {
+            Log.AppendToLog("Initialize", -1, "DebugMode", "Initializing debug mode...");
             if (!initialized)
             {
                 initialized = true;
@@ -58,6 +60,7 @@ namespace TWILang_Test
                 store.Add("run", Run);
                 store.Add("import", Import);
                 store.Add("sect", Sect);
+                store.Add("hsect", HSect);
             }
         }
     }

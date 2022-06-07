@@ -8,6 +8,7 @@ namespace TWILang_Test
     {
         public static void Run(string cmd, string[] list)
         {
+            Log.AppendToLog("Execution", -1, "DebugMode", "Entering DebugMode.Run");
             if (list.Length > 1)
             {
                 int ln = -1;

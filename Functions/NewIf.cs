@@ -16,18 +16,16 @@ namespace TWILang_Test
                 switch (subCmd.ToLower())
                 {
                     case "eq":
-                        //Console.WriteLine("If Equal To");
                         NewIfEq(cmdList, i, filename);
                         break;
                     case "!eq":
-                        //Console.WriteLine("If Not Equal To");
                         NewIfNotEq(cmdList, i, filename);
                         break;
                     case "def":
-                        Console.WriteLine("If Defined");
+                        NewIfDef(cmdList, i, filename);
                         break;
                     case "!def":
-                        Console.WriteLine("If Not Defined");
+                        NewIfNotDef(cmdList, i, filename);
                         break;
                     default:
                         traceback.panic(string.Join(' ', cmdList),filename,$"Invalid 'if' function \"{subCmd.ToLower()}\"");
@@ -41,6 +39,7 @@ namespace TWILang_Test
 
         public static void NewIfEq(string[] cmdList, int i, string filename)
         {
+            Log.AppendToLog("Functions", 0, "EXEC", $"Entering NewIf > NewIfEq");
             if (cmdList.Length > 5)
             {
                 string first = Variables.inlineVariables(string.Join("", cmdList[2].Split("\"")).Trim());
@@ -65,6 +64,8 @@ namespace TWILang_Test
 
         public static void NewIfNotEq(string[] cmdList, int i, string filename)
         {
+            Log.AppendToLog("Functions", 0, "EXEC", $"Entering NewIf > NewIfNotEq");
+
             if (cmdList.Length > 5)
             {
                 string first = Variables.inlineVariables(string.Join("", cmdList[2].Split("\"")).Trim());
@@ -90,6 +91,8 @@ namespace TWILang_Test
 
         public static void NewIfDef(string[] cmdList, int i, string filename)
         {
+            Log.AppendToLog("Functions", 0, "EXEC", $"Entering NewIf > NewIfDef");
+
             if (cmdList.Length > 4)
             {
                 string first = Variables.inlineVariables(string.Join("", cmdList[2].Split("\"")).Trim());
@@ -114,11 +117,13 @@ namespace TWILang_Test
 
         public static void NewIfNotDef(string[] cmdList, int i, string filename)
         {
+            Log.AppendToLog("Functions", 0, "EXEC", $"Entering NewIf > NewIfNotDef");
+
             if (cmdList.Length > 4)
             {
                 string first = Variables.inlineVariables(string.Join("", cmdList[2].Split("\"")).Trim());
 
-                if (first != "")
+                if (first == "")
                 {
                     string comnd = "";
 

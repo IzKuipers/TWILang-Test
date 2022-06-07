@@ -7,6 +7,8 @@ namespace TWILang_Test
     {
         public static void List(string cmd, string[] list)
         {
+            Log.AppendToLog("Execution", -1, "DebugMode", "Entering DebugMode.List");
+
             List<string> buff = FileImport.fileContents;
 
             int lineNrPadCount = $"{buff.Count}".Length + 1;

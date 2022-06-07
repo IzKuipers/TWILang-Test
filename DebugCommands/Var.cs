@@ -7,6 +7,8 @@ namespace TWILang_Test
     {
         public static void Var(string cmd, string[] list)
         {
+            Log.AppendToLog("Execution", -1, "DebugMode", "Entering DebugMode.Var");
+
             Console.WriteLine($"Variable usage of {FileImport.filename}");
             for (int i = 0; i < Console.WindowWidth / 2; i++)
             {

@@ -7,6 +7,8 @@ namespace TWILang_Test
     {
         public static void Sect(string cmd, string[] list)
         {
+            Log.AppendToLog("Execution", -1, "DebugMode", "Entering DebugMode.Sect");
+
             Console.WriteLine($"Section definitions of {FileImport.filename}");
             for (int i = 0; i < Console.WindowWidth / 2; i++)
             {
