@@ -16,22 +16,28 @@ namespace TWILang_Test
 
             while (enabled)
             {
-                Console.Write(": ");
+                    Console.Write(": ");
 
-                string command = Console.ReadLine();
-                string[] cmdList = Regex.Matches(command, "[^\\s\"']+|\"([^\"]*)\"|'([^']*)'").Cast<Match>().Select(m => m.Value).ToArray();
-
-                if (!initialized) initialize();
-
-                if (store.ContainsKey(cmdList[0]) && cmdList.Length > 0)
+                    string command = Console.ReadLine();
+                    string[] cmdList = Regex.Matches(command, "[^\\s\"']+|\"([^\"]*)\"|'([^']*)'").Cast<Match>().Select(m => m.Value).ToArray();
+                if (cmdList.Length <= 0)
                 {
-                    Console.Clear();
-
-                    store[cmdList[0]](command, cmdList);
+                    Console.WriteLine("? EMPTY");
                 }
                 else
                 {
-                    Console.WriteLine("? INVALID");
+                    if (!initialized) initialize();
+
+                    if (store.ContainsKey(cmdList[0]) && cmdList.Length > 0)
+                    {
+                        Console.Clear();
+
+                        store[cmdList[0]](command, cmdList);
+                    }
+                    else
+                    {
+                        Console.WriteLine("? INVALID");
+                    }
                 }
             }
         }
@@ -51,6 +57,7 @@ namespace TWILang_Test
                 store.Add("exit", Exit);
                 store.Add("run", Run);
                 store.Add("import", Import);
+                store.Add("sect", Sect);
             }
         }
     }

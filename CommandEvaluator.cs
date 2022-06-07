@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -88,11 +89,17 @@ namespace TWILang_Test
 
                             if (Functions.Commands.ContainsKey(cmdList[0].ToLower()))
                             {
-                                Functions.Commands[cmdList[0].ToLower()](cmdList, ln, filename);
+                                try
+                                {
+                                    Functions.Commands[cmdList[0].ToLower()](cmdList, ln, filename);
+                                } catch (Exception ex)
+                                {
+                                    traceback.panic(line, filename, ex.Message);
+                                }
                             }
                             else
                             {
-                                traceback.syntaxErr(line, filename);
+                                traceback.syntaxErr(line, filename, $"function '{cmdList[0].ToLower()}' is unknown");
                             }
                         }
                     }

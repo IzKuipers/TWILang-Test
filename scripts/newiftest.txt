@@ -1,0 +1,22 @@
+sect main
+
+	if !eq "$A" "$B" run asdf
+	ifds eq "$A" "$B" run asdas
+	if !def $A run asdf
+	if def $A run asdas
+
+endsect
+
+sect asdf
+
+	print "h /shrug"
+
+endsect
+
+sect asdas
+
+	print "H"
+
+endsect
+
+run main

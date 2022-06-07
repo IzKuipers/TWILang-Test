@@ -29,6 +29,13 @@ namespace TWILang_Test
 
         public static void syntaxErr(string line, string file, string error = "call made to nonexistent function")
         {
+            for (int i = 0; i < Console.WindowWidth / 2; i++)
+            {
+                Console.Write("-");
+            }
+
+            Console.WriteLine();
+
             int ln = -1;
 
             for (int i = 0; i < FileImport.fileContents.Count; i++)
