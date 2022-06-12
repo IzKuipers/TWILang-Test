@@ -1,4 +1,6 @@
-﻿namespace TWILang_Test
+﻿using System.Threading;
+
+namespace TWILang_Test
 {
     internal partial class Functions
     {
@@ -11,7 +13,7 @@
                 string sleepLength = cmdList[1];
                 int sleepLengthInt = int.Parse(sleepLength);
 
-                System.Threading.Thread.Sleep(sleepLengthInt);
+                Thread.Sleep(sleepLengthInt);
             }
         }
     }

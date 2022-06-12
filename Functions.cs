@@ -19,9 +19,9 @@ namespace TWILang_Test
                 Commands.Add("clrscreen", ClearScreen);
                 Commands.Add("input", Input);
                 Commands.Add("print", Print);
-                //Commands.Add("ifndef", IfNotDef);
-                //Commands.Add("ifdef", IfDef);
-                //Commands.Add("ifn", IfNot);
+                Commands.Add("ifndef", IfNotDef);
+                Commands.Add("ifdef", IfDef);
+                Commands.Add("ifn", IfNot);
                 Commands.Add("if", NewIf);
                 Commands.Add("run", Run);
                 Commands.Add("killme", KillMe);

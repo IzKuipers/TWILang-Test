@@ -9,6 +9,8 @@ namespace TWILang_Test
         {
             Log.AppendToLog("Functions", i, filename, $"Entering If");
 
+            Console.WriteLine("WARNING: `if` is deprecated, please use `if eq`");
+
             if (cmdList[1] != null && cmdList.Length > 3)
             {
                 string first = Variables.inlineVariables(String.Join("", cmdList[1].Split("\"")).Trim());

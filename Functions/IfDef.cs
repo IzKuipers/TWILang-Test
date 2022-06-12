@@ -9,6 +9,8 @@ namespace TWILang_Test
         {
             Log.AppendToLog("Functions", i, filename, $"Entering IfDef");
 
+            Console.WriteLine("WARNING: `ifdef` is deprecated, please use `if def`");
+
             if (cmdList[1] != null && cmdList.Length > 2)
             {
                 string varStr = String.Join("", cmdList[1].Split("\"")).Trim();
