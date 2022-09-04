@@ -1,0 +1,9 @@
+﻿sect main
+
+	setarr []A
+	appendarr []A "when"
+	appendarr []A "the"
+	appendarr []A "freaking"
+	appendarr []A "h"
+
+endsect

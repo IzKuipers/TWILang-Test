@@ -14,7 +14,7 @@ sect main
 	input $G "GUESS:"
 
 	print ""
-	if eq"$B" "$G" run guess_correct
+	if eq "$B" "$G" run guess_correct
 	if !eq "$B" "$G" run guess_incorrect
 
 endsect

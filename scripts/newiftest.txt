@@ -1,7 +1,7 @@
 sect main
 
 	if !eq "$A" "$B" run asdf
-	ifds eq "$A" "$B" run asdas
+	if eq "$A" "$B" run asdas
 	if !def $A run asdf
 	if def $A run asdas
 

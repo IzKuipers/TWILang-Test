@@ -9,5 +9,3 @@ sect main
 	run main
 
 endsect
-
-run main

@@ -32,6 +32,8 @@ namespace TWILang_Test
                 Commands.Add("set", Set);
                 Commands.Add("cpvar", CopyVar);
                 Commands.Add("mvvar", MoveVar);
+                Commands.Add("setarr", SetArr);
+                Commands.Add("appendarr", AppendArr);
             }
         }
     }

@@ -61,6 +61,7 @@ namespace TWILang_Test
                 store.Add("import", Import);
                 store.Add("sect", Sect);
                 store.Add("hsect", HSect);
+                store.Add("arr", Arr);
             }
         }
     }
